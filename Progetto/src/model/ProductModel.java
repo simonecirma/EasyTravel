@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -14,6 +16,7 @@ import javax.sql.DataSource;
 
 public class ProductModel {
 	
+	static Logger logger = Logger.getLogger(ProductModel.class.getName());
 	private static DataSource ds;
 
 	static {
@@ -24,7 +27,7 @@ public class ProductModel {
 			ds = (DataSource) envCtx.lookup("jdbc/easytravel");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
+			logger.log(Level.WARNING, e.getMessage());
 		}
 	}
 	
