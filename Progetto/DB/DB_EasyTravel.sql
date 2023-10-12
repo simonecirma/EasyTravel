@@ -179,7 +179,7 @@ SET @SMARTBOXE8code := 'NASFGHJTUI8';
 SET @SMARTBOXE9code := 'MONIBUVYCT';
 SET @SMARTBOXE10code := '123456789P';
 
-/*Inserire immagini pacchetti*/
+--Inserire immagini pacchetti
 
 INSERT INTO Pacchetto(CodSeriale, Nome, Prezzo, DescrizioneRidotta, Descrizione, Immagine, Tipo, NumGiorni, FlagDisponibilità)
 VALUES(@SMARTBOXE1code, 'Ingresso giornaliero alle Terme Stufe di Nerone nei Campi Flegrei per 2', '55.11', 'Per 2 persone, un ingresso giornaliero composto da: piscine, prati, sorgenti, fango, percorso kneipp, vasche idromassaggio, cascatina, grotte termali e giardino d inverno', 'A due passi da Napoli, ti aspetta una giornata di puro relax nei bagni termali delle antiche Terme Stufe di Nerone per 2 persone. Godi di tutti i benefici dell acqua ricca di minerali con 1 ingresso giornaliero per un ampia varietà di servizi. Concediti un viaggio di benessere nelle ravvivanti risorse termali del sottosuolo flegreo, famoso sin dai tempi romani. Nuota nelle piscine termali interne o esterne e immergiti nelle grotte naturali. Concediti un bagno di fango purificante o prova il percorso Kneipp per le gambe. Rilassati nelle vasche idromassaggio e nella cascatina. E per finire, goditi il silenzio del parco termale tra sorgenti naturali, laghetti e prati incastonati nello splendido scenario dei Campi Flegrei. Lascia che stress e tensioni si dissolvano nell acqua!', '', 'Terme e SPA', '1', 1);
