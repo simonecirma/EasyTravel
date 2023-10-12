@@ -28,6 +28,7 @@ public class ProductModel {
 
 		} catch (NamingException e) {
 			logger.log(Level.WARNING, e.getMessage());
+			
 		}
 	}
 	
