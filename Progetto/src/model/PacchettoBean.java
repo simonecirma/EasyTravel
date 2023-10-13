@@ -6,98 +6,98 @@ public class PacchettoBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	String CodSeriale;
-	String Nome;
-	float Prezzo;
-	String DescrizioneRidotta;
-	String Descrizione;
-	String Immagine;
-	String Tipo;
-	int NumGiorni;
-	boolean Disponibilità;
+	String codSeriale;
+	String nome;
+	float prezzo;
+	String descrizioneRidotta;
+	String descrizione;
+	String immagine;
+	String tipo;
+	int numGiorni;
+	boolean disponibilità;
 	
 	public PacchettoBean() {
-		this.CodSeriale="";
-		this.Nome="";
-		this.Prezzo=0;
-		this.DescrizioneRidotta="";
-		this.Descrizione="";
-		this.Immagine="";
-		this.Tipo="";
-		this.NumGiorni=0;
-		this.Disponibilità=false;
+		this.codSeriale="";
+		this.nome="";
+		this.prezzo=0;
+		this.descrizioneRidotta="";
+		this.descrizione="";
+		this.immagine="";
+		this.tipo="";
+		this.numGiorni=0;
+		this.disponibilità=false;
 	}
 
 	public String getCodSeriale() {
-		return CodSeriale;
+		return codSeriale;
 	}
 
 	public void setCodSeriale(String codSeriale) {
-		CodSeriale = codSeriale;
+		this.codSeriale = codSeriale;
 	}
 
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
 
 	public void setNome(String nome) {
-		Nome = nome;
+		this.nome = nome;
 	}
 
 	public float getPrezzo() {
-		return Prezzo;
+		return prezzo;
 	}
 
 	public void setPrezzo(float prezzo) {
-		Prezzo = prezzo;
+		this.prezzo = prezzo;
 	}
 
 	public String getDescrizioneRidotta() {
-		return DescrizioneRidotta;
+		return descrizioneRidotta;
 	}
 
 	public void setDescrizioneRidotta(String descrizioneRidotta) {
-		DescrizioneRidotta = descrizioneRidotta;
+		this.descrizioneRidotta = descrizioneRidotta;
 	}
 
 	public String getDescrizione() {
-		return Descrizione;
+		return descrizione;
 	}
 
 	public void setDescrizione(String descrizione) {
-		Descrizione = descrizione;
+		this.descrizione = descrizione;
 	}
 
 	public String getImmagine() {
-		return Immagine;
+		return immagine;
 	}
 
 	public void setImmagine(String immagine) {
-		Immagine = immagine;
+		this.immagine = immagine;
 	}
 
 	public String getTipo() {
-		return Tipo;
+		return tipo;
 	}
 
 	public void setTipo(String tipo) {
-		Tipo = tipo;
+		this.tipo = tipo;
 	}
 
 	public int getNumGiorni() {
-		return NumGiorni;
+		return numGiorni;
 	}
 
 	public void setNumGiorni(int numGiorni) {
-		NumGiorni = numGiorni;
+		this.numGiorni = numGiorni;
 	}
 
 	public boolean isDisponibilità() {
-		return Disponibilità;
+		return disponibilità;
 	}
 
 	public void setDisponibilità(boolean disponibilità) {
-		Disponibilità = disponibilità;
+		this.disponibilità = disponibilità;
 	}
 	
-}
+	}
