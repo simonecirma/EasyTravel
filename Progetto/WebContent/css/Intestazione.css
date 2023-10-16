@@ -6,7 +6,7 @@
 	left: 0;
 	height: 75px;
 	width: 100%;
-	background-color: #000000;
+	background-color: #AAAAAA;
 	z-index:20;
 }
 
@@ -68,14 +68,22 @@
 	height: 36px;
 }
 
-.icone {
+.profilo {
 	display: inline-block;
 	float: right;
 	position: relative;
 }
 
-.icone img {
-	width: 50px;
-	height: 50px;
-	margin: 10px 10px 10px 10px;
+.profilo img {
+	width: 80px;
+}
+
+.carrello {
+	display: inline-block;
+	float: right;
+	position: relative;
+}
+
+.carrello img {
+	width: 75px;
 }

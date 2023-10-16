@@ -24,6 +24,16 @@
 				</div>
 			</form>
 		</div>
+		<div class="profilo">
+			<a href="profilo.jsp">
+				<img src="Immagini/profilo.png">
+			</a>
+		</div>
+		<div class="carrello">
+			<a href="carrello.jsp">
+				<img src="Immagini/carrello.png">
+			</a>
+		</div>
 	</div>
 </body>
 </html>
