@@ -10,7 +10,7 @@
 <body>
 	<div class="intestazione">
 		<div class="logo">
-			<a href="Index.jsp">
+			<a href="index.jsp">
 				<img src="Immagini/logo.png" alt="Home">
 			</a>
 		</div>

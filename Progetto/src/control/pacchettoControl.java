@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.PacchettoBean;
 import model.pacchettoModel;
+import model.immaginiModel;
 
 @WebServlet("/pacchettoControl")
 public class pacchettoControl extends HttpServlet {
@@ -20,6 +20,7 @@ public class pacchettoControl extends HttpServlet {
 	static boolean isDataSource = true;
 	
 	static pacchettoModel productModel = new pacchettoModel();
+	static immaginiModel immaginiModel = new immaginiModel();
 	
     public pacchettoControl() {
         super();
@@ -36,9 +37,11 @@ public class pacchettoControl extends HttpServlet {
 					String id = request.getParameter("id");
 					request.removeAttribute("product");
 					request.setAttribute("product", productModel.ricercaPerCodice(id));
+					request.removeAttribute("img");
+					request.setAttribute("img", immaginiModel.immaginiPerPacchetto(id));
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dettagliPacchetto.jsp");
 					dispatcher.forward(request, response);
-				} else if (action.equalsIgnoreCase("delete")) {
+				} else if (action.equalsIgnoreCase("delete")){
 					String id = request.getParameter("id");
 					productModel.cancellaPacchetto(id);
 				}

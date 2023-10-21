@@ -11,9 +11,9 @@
 
 <!DOCTYPE html>
 <html>
-	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PacchettoBean"%>
+	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
 <head>
-	<meta charset="ISO-8859-1">
+	<meta charset="UTF-8">
 	<title>Easy Travel</title>
 	 <jsp:include page="Intestazione.jsp" flush="true"/> 
 </head>
@@ -36,8 +36,8 @@
 			<td><%=bean.getCodSeriale()%></td>
 			<td><%=bean.getNome()%></td>
 			<td><%=bean.getDescrizioneRidotta()%></td>
-			<td><a href="product?action=delete&id=<%=bean.getCodSeriale()%>">Delete</a><br>
-				<a href="product?action=read&id=<%=bean.getCodSeriale()%>">Details</a></td>
+			<td><a href="pacchettoControl?action=delete&id=<%=bean.getCodSeriale()%>">Delete</a><br>
+				<a href="pacchettoControl?action=read&id=<%=bean.getCodSeriale()%>">Details</a></td>
 		</tr>
 		<%
 				}
@@ -51,5 +51,4 @@
 		%>
 	</table>
 </body>
-</html>
 </html>

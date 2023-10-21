@@ -38,8 +38,7 @@ public class pacchettoModel {
 	private static final String TABLE_NAME_PACCHETTO = "Pacchetto";
 	
 	
-	public synchronized Collection<PacchettoBean> stampaTutti() throws SQLException
-	{
+	public synchronized Collection<PacchettoBean> stampaTutti() throws SQLException{
 		
 		PreparedStatement ps = null;
 		Collection<PacchettoBean> pacchetti = new LinkedList<>();
@@ -92,7 +91,7 @@ public class pacchettoModel {
 				bean.setCodSeriale(rs.getString("CodSeriale"));
 				bean.setNome(rs.getString("Nome"));
 				bean.setDescrizioneRidotta(rs.getString("DescrizioneRidotta"));
-				bean.setDescrizioneRidotta(rs.getString("Descrizione"));
+				bean.setDescrizione(rs.getString("Descrizione"));
 				bean.setPrezzo(rs.getFloat("Prezzo"));
 			}
 

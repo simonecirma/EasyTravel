@@ -11,7 +11,6 @@ public class PacchettoBean implements Serializable {
 	float prezzo;
 	String descrizioneRidotta;
 	String descrizione;
-	String immagine;
 	String tipo;
 	int numGiorni;
 	boolean disponibilità;
@@ -22,7 +21,6 @@ public class PacchettoBean implements Serializable {
 		this.prezzo=0;
 		this.descrizioneRidotta="";
 		this.descrizione="";
-		this.immagine="";
 		this.tipo="";
 		this.numGiorni=0;
 		this.disponibilità=false;
@@ -66,14 +64,6 @@ public class PacchettoBean implements Serializable {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
-	}
-
-	public String getImmagine() {
-		return immagine;
-	}
-
-	public void setImmagine(String immagine) {
-		this.immagine = immagine;
 	}
 
 	public String getTipo() {
