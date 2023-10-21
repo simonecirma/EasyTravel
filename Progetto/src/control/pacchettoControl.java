@@ -2,6 +2,8 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +17,7 @@ import model.immaginiModel;
 
 @WebServlet("/pacchettoControl")
 public class pacchettoControl extends HttpServlet {
+	static Logger logger = Logger.getLogger(pacchettoControl.class.getName());
 	private static final long serialVersionUID = 1L;
        
 	static boolean isDataSource = true;
@@ -47,14 +50,14 @@ public class pacchettoControl extends HttpServlet {
 				}
 			}
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			logger.log(Level.WARNING, e.getMessage());
 		}
 
 		try {
 			request.removeAttribute("products");
 			request.setAttribute("products", productModel.stampaTutti());
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			logger.log(Level.WARNING, e.getMessage());
 		}
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");

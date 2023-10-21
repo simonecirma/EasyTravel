@@ -14,8 +14,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.immaginiBean;
-
 public class immaginiModel {
 	
 	static Logger logger = Logger.getLogger(immaginiModel.class.getName());

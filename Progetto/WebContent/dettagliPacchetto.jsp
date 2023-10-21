@@ -10,7 +10,7 @@
 	}
 %>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
 <head>
 	<meta charset="UTF-8">
@@ -24,7 +24,7 @@
 				while (it.hasNext()) {
 					immaginiBean bean = (immaginiBean) it.next();
 		%>
-				<img src="Immagini/<%=bean.getNome()%>">
+				<img src="Immagini/<%=bean.getNome()%>" alt="Errore caricamento immagini">
 		<%
 				}
 			} else {

@@ -26,12 +26,12 @@
 		</div>
 		<div class="profilo">
 			<a href="profilo.jsp">
-				<img src="Immagini/profilo.png">
+				<img src="Immagini/profilo.png" alt="Profilo">
 			</a>
 		</div>
 		<div class="carrello">
 			<a href="carrello.jsp">
-				<img src="Immagini/carrello.png">
+				<img src="Immagini/carrello.png" alt="Carrello">
 			</a>
 		</div>
 	</div>

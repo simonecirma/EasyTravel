@@ -14,9 +14,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.PacchettoBean;
-import model.pacchettoModel;
-
 public class pacchettoModel {
 	
 	static Logger logger = Logger.getLogger(pacchettoModel.class.getName());
