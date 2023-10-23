@@ -44,5 +44,6 @@
 	<%
 		}
 	%>
+		<a href="pacchettoControl?action=AggiungiAlCarrello&id=<%=product.getCodSeriale()%>"><input class="submit" type="submit" value="Aggiungi al Carrello"> </a>
 </body>
 </html>

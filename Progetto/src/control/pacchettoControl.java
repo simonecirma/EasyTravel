@@ -47,6 +47,14 @@ public class pacchettoControl extends HttpServlet {
 				} else if (action.equalsIgnoreCase("delete")){
 					String id = request.getParameter("id");
 					productModel.cancellaPacchetto(id);
+				}else if (action.equalsIgnoreCase("AggiungiAlCarrello")) {
+					String id =request.getParameter("id");
+					request.removeAttribute("product");
+					request.setAttribute("product", productModel.ricercaPerCodice(id));
+					request.removeAttribute("img");
+					request.setAttribute("img", immaginiModel.immagineCopertina(id));
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/carrello.jsp");
+					dispatcher.forward(request, response);
 				}
 			}
 		} catch (SQLException e) {
@@ -56,6 +64,8 @@ public class pacchettoControl extends HttpServlet {
 		try {
 			request.removeAttribute("products");
 			request.setAttribute("products", productModel.stampaTutti());
+			request.removeAttribute("copertine");
+			request.setAttribute("copertine", immaginiModel.Copertine());
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, e.getMessage());
 		}

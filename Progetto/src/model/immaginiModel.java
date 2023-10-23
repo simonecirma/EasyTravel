@@ -67,4 +67,68 @@ public class immaginiModel {
 		}
 		return immagini;
 	}
+	
+	public synchronized Collection<immaginiBean> Copertine() throws SQLException{
+		PreparedStatement ps = null;
+		Collection<immaginiBean> immagini = new LinkedList<>();
+		String sql = "SELECT * FROM " + immaginiModel.TABLE_NAME_IMMAGINI + " WHERE FlagCopertina = 1";
+		try(Connection con = ds.getConnection())
+		{
+			
+			ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) 
+			{
+				immaginiBean bean = new immaginiBean();
+				bean.setNome(rs.getString("Nome"));
+				bean.setCodice(rs.getString("Codice"));
+				immagini.add(bean);
+			}
+		}
+		catch(SQLException e)
+		{
+			logger.log(Level.WARNING, e.getMessage());
+		}
+		finally
+		{
+			if(ps != null)
+			{
+				ps.close();
+			}
+		}
+		return immagini;
+	}
+	
+	public synchronized immaginiBean immagineCopertina(String code) throws SQLException{
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		immaginiBean bean = new immaginiBean();
+		
+		String selectSQL = "SELECT * FROM " + immaginiModel.TABLE_NAME_IMMAGINI + " WHERE Codice = ? AND FlagCopertina=1";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, code);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				bean.setNome(rs.getString("Nome"));
+				bean.setCodice(rs.getString("Codice"));
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		
+		return bean;
+	}
 }

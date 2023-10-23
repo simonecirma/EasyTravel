@@ -7,6 +7,12 @@
 		response.sendRedirect("./pacchettoControl");	
 		return;
 	}
+	Collection<?> copertine = (Collection<?>) request.getAttribute("copertine");
+	if(copertine == null) {
+		response.sendRedirect("./pacchettoControl");	
+		return;
+	}
+	
 %>
 
 <!DOCTYPE html>
@@ -21,18 +27,31 @@
 	<h2>Products</h2>
 	<table border="1">
 		<tr>
-			<th>Code <a href="product?sort=code">Sort</a></th>
-			<th>Name <a href="product?sort=name">Sort</a></th>
-			<th>Description <a href="product?sort=description">Sort</a></th>
+			<th>Copertina</th>
+			<th>Code </th>
+			<th>Name </th>
+			<th>Description</th> 
 			<th>Action</th>
 		</tr>
+		<tr>
 		<%
-			if (products != null && products.size() != 0) {
+			if ((products != null && products.size() != 0) && (copertine != null && copertine.size() != 0)){
 				Iterator<?> it = products.iterator();
 				while (it.hasNext()) {
 					PacchettoBean bean = (PacchettoBean) it.next();
+					Iterator<?> it2 = copertine.iterator();
+					while(it2.hasNext()){
+						immaginiBean bean2 = (immaginiBean) it2.next();
+						if(bean.getCodSeriale().contains(bean2.getCodice())){
 		%>
-		<tr>
+							<td><img src="Immagini/<%=bean2.getNome() %>"></td>
+		<%
+						}
+					}
+					
+		%>
+		
+			
 			<td><%=bean.getCodSeriale()%></td>
 			<td><%=bean.getNome()%></td>
 			<td><%=bean.getDescrizioneRidotta()%></td>

@@ -86,6 +86,7 @@ CREATE TABLE Immagini
 (
 	Nome varchar (50) NOT NULL,
 	Codice varchar (20) NOT NULL,
+	FlagCopertina bit NOT NULL, --1=SI,0=NO
 	PRIMARY KEY (Nome),
 	FOREIGN KEY (Codice) REFERENCES Pacchetto(CodSeriale) ON UPDATE cascade ON DELETE cascade
 );
@@ -207,72 +208,72 @@ VALUES(@SMARTBOXE9code, '3 giorni da sogno nella verde Toscana: 2 notti con cola
 INSERT INTO Pacchetto(CodSeriale, Nome, Prezzo, DescrizioneRidotta, Descrizione, Tipo, NumGiorni, FlagDisponibilità)
 VALUES(@SMARTBOXE10code, 'Sotto il sole d Europa: 2 notti da sogno sulle spiagge più belle', '269.99', '2 notti con colazione per 2 persone, 151 soggiorni sulle spiagge più belle d Europa', 'Quale modo migliore di ricaricare le batterie in coppia se non in riva al mare? Immergiti in una favolosa avventuriera costiera in coppia! Parti alla ricerca delle più incantevoli spiagge d  Europa con un soggiorno di 2 notti con deliziose colazioni per 2 persone. Tra Francia, Spagna, Italia, Portogallo e Grecia, la scelta è tra le tue mani: decidi tu dove trascorrere la tua fuga marittima. Una volta arrivati a destinazione, sistema le valigie ed esplora i dintorni. Passeggia lungo i litorali e, con la sabbia tra le dita, concediti il lusso di sdraiarti in spiaggia o di tuffarti nell  acqua scintillante sotto il sole. Goditi la brezza marina, la vista mozzafiato sulle onde e romantici tramonti insieme a chi vuoi!', 'Soggiorno Classico', '1',1);
 
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Yurta1.jpg',@SMARTBOXE5code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Yurta2.jpg',@SMARTBOXE5code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Yurta3.jpg',@SMARTBOXE5code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Europa1.jpg',@SMARTBOXE10code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Europa2.jpg',@SMARTBOXE10code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Europa3.jpg',@SMARTBOXE10code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Europa4.jpg',@SMARTBOXE10code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Palermo1.jpg',@SMARTBOXE3code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Palermo2.jpg',@SMARTBOXE3code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Palermo3.jpg',@SMARTBOXE3code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Salento1.jpg',@SMARTBOXE2code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Salento2.jpg',@SMARTBOXE2code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Salento3.jpg',@SMARTBOXE2code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('TermeStufe1.jpg',@SMARTBOXE1code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('TermeStufe2.jpg',@SMARTBOXE1code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('TermeStufe3.jpg',@SMARTBOXE1code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Parigi1.jpg',@SMARTBOXE7code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Parigi2.jpg',@SMARTBOXE7code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Parigi3.jpg',@SMARTBOXE7code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Parigi4.jpg',@SMARTBOXE7code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Bolla1.jpg',@SMARTBOXE4code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Bolla2.jpg',@SMARTBOXE4code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Bolla3.jpg',@SMARTBOXE4code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Agriturismo1.jpg',@SMARTBOXE6code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Agriturismo2.jpg',@SMARTBOXE6code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Agriturismo3.jpg',@SMARTBOXE6code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Toscana1.jpg',@SMARTBOXE9code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Toscana2.jpg',@SMARTBOXE9code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Toscana3.jpg',@SMARTBOXE9code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Toscana4.jpg',@SMARTBOXE9code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Pasta1.jpg',@SMARTBOXE8code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Pasta2.jpg',@SMARTBOXE8code);
-INSERT INTO Immagini(Nome, Codice)
-VALUES ('Pasta3.jpg',@SMARTBOXE8code);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Yurta1.jpg',@SMARTBOXE5code,1);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Yurta2.jpg',@SMARTBOXE5code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Yurta3.jpg',@SMARTBOXE5code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Europa1.jpg',@SMARTBOXE10code,1);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Europa2.jpg',@SMARTBOXE10code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Europa3.jpg',@SMARTBOXE10code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Europa4.jpg',@SMARTBOXE10code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Palermo1.jpg',@SMARTBOXE3code,1);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Palermo2.jpg',@SMARTBOXE3code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Palermo3.jpg',@SMARTBOXE3code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Salento1.jpg',@SMARTBOXE2code,1);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Salento2.jpg',@SMARTBOXE2code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Salento3.jpg',@SMARTBOXE2code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('TermeStufe1.jpg',@SMARTBOXE1code,1);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('TermeStufe2.jpg',@SMARTBOXE1code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('TermeStufe3.jpg',@SMARTBOXE1code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Parigi1.jpg',@SMARTBOXE7code,1);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Parigi2.jpg',@SMARTBOXE7code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Parigi3.jpg',@SMARTBOXE7code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Parigi4.jpg',@SMARTBOXE7code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Bolla1.jpg',@SMARTBOXE4code,1);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Bolla2.jpg',@SMARTBOXE4code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Bolla3.jpg',@SMARTBOXE4code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Agriturismo1.jpg',@SMARTBOXE6code,1);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Agriturismo2.jpg',@SMARTBOXE6code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Agriturismo3.jpg',@SMARTBOXE6code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Toscana1.jpg',@SMARTBOXE9code,1);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Toscana2.jpg',@SMARTBOXE9code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Toscana3.jpg',@SMARTBOXE9code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Toscana4.jpg',@SMARTBOXE9code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Pasta1.jpg',@SMARTBOXE8code,1);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Pasta2.jpg',@SMARTBOXE8code,0);
+INSERT INTO Immagini(Nome, Codice,FlagCopertina)
+VALUES ('Pasta3.jpg',@SMARTBOXE8code,0);
 
 INSERT INTO Composto (Quantità, CodSeriale, IdOrdine)
 VALUES ('1',@SMARTBOXE1code,'01');
