@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.carrelloBean;
 import model.pacchettoModel;
 import model.immaginiModel;
 
@@ -32,6 +33,17 @@ public class pacchettoControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		carrelloBean carrello = (carrelloBean)request.getSession().getAttribute("carrello");
+		if(carrello == null) {
+			carrello = new carrelloBean();
+			request.getSession().setAttribute("carrello", carrello);
+		}
+		carrelloBean immaginiCarrello = (carrelloBean)request.getSession().getAttribute("immaginiCarrello");
+		if(immaginiCarrello == null) {
+			immaginiCarrello = new carrelloBean();
+			request.getSession().setAttribute("immaginiCarrello", immaginiCarrello);
+		}
+		
 		String action = request.getParameter("action");
 
 		try {
@@ -49,10 +61,8 @@ public class pacchettoControl extends HttpServlet {
 					productModel.cancellaPacchetto(id);
 				}else if (action.equalsIgnoreCase("AggiungiAlCarrello")) {
 					String id =request.getParameter("id");
-					request.removeAttribute("product");
-					request.setAttribute("product", productModel.ricercaPerCodice(id));
-					request.removeAttribute("img");
-					request.setAttribute("img", immaginiModel.immagineCopertina(id));
+					carrello.addPacchetto(productModel.ricercaPerCodice(id));
+					immaginiCarrello.addImmagine(immaginiModel.immagineCopertina(id));
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/carrello.jsp");
 					dispatcher.forward(request, response);
 				}
