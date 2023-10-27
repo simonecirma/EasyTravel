@@ -9,8 +9,8 @@ public class carrelloBean {
 	private List<immaginiBean> immaginiCarrello;
 	
 	public carrelloBean() {
-		this.carrello = new ArrayList<PacchettoBean>();
-		this.immaginiCarrello = new ArrayList<immaginiBean>();
+		this.carrello = new ArrayList<>();
+		this.immaginiCarrello = new ArrayList<>();
 	}
 	
 	public void addPacchetto(PacchettoBean pacchetto) {
