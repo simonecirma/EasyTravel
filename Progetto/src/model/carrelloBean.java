@@ -7,41 +7,41 @@ import model.PacchettoBean;
 
 public class carrelloBean {
 
-	private List<PacchettoBean> products;
-	private List<immaginiBean> immagini;
+	private List<PacchettoBean> carrello;
+	private List<immaginiBean> immaginiCarrello;
 	
 	public carrelloBean() {
-		products = new ArrayList<PacchettoBean>();
-		immagini = new ArrayList<immaginiBean>();
+		this.carrello = new ArrayList<PacchettoBean>();
+		this.immaginiCarrello = new ArrayList<immaginiBean>();
 	}
 	
-	public void addPacchetto(PacchettoBean product) {
-		products.add(product);
+	public void addPacchetto(PacchettoBean pacchetto) {
+		this.carrello.add(pacchetto);
 	}
 	public void addImmagine(immaginiBean img) {
-		immagini.add(img);
+		this.immaginiCarrello.add(img);
 	}
-	public void cancellaPacchetto(PacchettoBean product) {
-		for(PacchettoBean prod : products) {
-			if(prod.getCodSeriale() == product.getCodSeriale()) {
-				products.remove(prod);
+	public void cancellaPacchetto(PacchettoBean pacchetto) {
+		for(PacchettoBean pacc : carrello) {
+			if(pacc.getCodSeriale().contains(pacchetto.getCodSeriale())) {
+				this.carrello.remove(pacc);
 				break;
 			}
 		}
  	}
 	public void cancellaImmagine(immaginiBean img) {
-		for(immaginiBean bean : immagini) {
-			if(bean.getNome() == img.getNome()) {
-				immagini.remove(bean);
+		for(immaginiBean bean : immaginiCarrello) {
+			if(bean.getNome().contains(img.getNome())) {
+				this.immaginiCarrello.remove(bean);
 				break;
 			}
 		}
  	}
 	
 	public List<PacchettoBean> getPacchetti() {
-		return  products;
+		return  carrello;
 	}
 	public List<immaginiBean> getImmagini() {
-		return  immagini;
+		return  immaginiCarrello;
 	}
 }

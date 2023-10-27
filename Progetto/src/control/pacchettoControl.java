@@ -60,11 +60,19 @@ public class pacchettoControl extends HttpServlet {
 					String id = request.getParameter("id");
 					productModel.cancellaPacchetto(id);
 				}else if (action.equalsIgnoreCase("AggiungiAlCarrello")) {
-					String id =request.getParameter("id");
+					String id = request.getParameter("id");
 					carrello.addPacchetto(productModel.ricercaPerCodice(id));
 					immaginiCarrello.addImmagine(immaginiModel.immagineCopertina(id));
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/carrello.jsp");
 					dispatcher.forward(request, response);
+				}else if (action.equalsIgnoreCase("Rimuovi")) {
+					String id = request.getParameter("id");
+					carrello.cancellaPacchetto(productModel.ricercaPerCodice(id));
+					request.getSession().setAttribute("carrello", carrello);
+					immaginiCarrello.cancellaImmagine(immaginiModel.immagineCopertina(id));
+					request.getSession().setAttribute("immaginiCarrello", immaginiCarrello);
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/carrello.jsp");
+					dispatcher.forward(request, response); 
 				}
 			}
 		} catch (SQLException e) {

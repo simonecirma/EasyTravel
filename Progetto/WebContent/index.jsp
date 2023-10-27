@@ -28,9 +28,9 @@
 	<table border="1">
 		<tr>
 			<th>Copertina</th>
-			<th>Code </th>
-			<th>Name </th>
-			<th>Description</th> 
+			<th>Nome </th>
+			<th>Descrizione</th> 
+			<th>Prezzo</th>
 			<th>Action</th>
 		</tr>
 		<tr>
@@ -50,11 +50,9 @@
 					}
 					
 		%>
-		
-			
-			<td><%=bean.getCodSeriale()%></td>
 			<td><%=bean.getNome()%></td>
 			<td><%=bean.getDescrizioneRidotta()%></td>
+			<td><%=bean.getPrezzo()%></td>
 			<td><a href="pacchettoControl?action=delete&id=<%=bean.getCodSeriale()%>">Delete</a><br>
 				<a href="pacchettoControl?action=read&id=<%=bean.getCodSeriale()%>">Details</a></td>
 		</tr>

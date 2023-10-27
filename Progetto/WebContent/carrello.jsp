@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
     
   <%
- 	 carrelloBean immaginiCarrello = new carrelloBean();
+ 	carrelloBean immaginiCarrello = null;
 	immaginiCarrello=(carrelloBean)session.getAttribute("immaginiCarrello");
-	carrelloBean carrello = new carrelloBean();
+	carrelloBean carrello = null;
 	carrello=(carrelloBean)session.getAttribute("carrello");
   %>
 <!DOCTYPE html>
@@ -20,12 +20,13 @@
 		<%
 			if ((carrello != null && carrello.getPacchetti().size() != 0) && (immaginiCarrello != null && immaginiCarrello.getImmagini().size() != 0)){
 		%>
-		<table border="1">
-		<tr>
+				<table border="1">
+					<tr>
 			<th>Copertina</th>
-			<th>Code </th>
-			<th>Name </th>
-			<th>Description</th> 
+			<th>Nome </th>
+			<th>Descrizione</th>
+			<th>Prezzo</th> 
+			<th></th>
 		</tr>
 		<tr>
 		<% 
@@ -36,14 +37,20 @@
 						if(pacc.getCodSeriale().contains(img.getCodice())){
 		%>	
 							<td><img src="Immagini/<%=img.getNome() %>"></td>
-							<td><%=pacc.getCodSeriale()%></td>
 							<td><%=pacc.getNome()%></td>
 							<td><%=pacc.getDescrizioneRidotta()%></td>
+							<td><%=pacc.getPrezzo()%></td>
+							<td>
+								<a href = "pacchettoControl?action=Rimuovi&id=<%=pacc.getCodSeriale()%>">
+									<img src = "Immagini/cestino.png">
+								</a>
+							</td>
 		</tr>
 		<%
+							break;
 						}
 					}
-				}
+				} 
 			} else {
 		%>
 		<tr>
@@ -53,7 +60,15 @@
 			}
 		%>
 	</table>
-	
-
+	<%
+		List <PacchettoBean> prodotti = carrello.getPacchetti();
+		float tot = 0;
+		for (PacchettoBean pacc : prodotti) {
+			tot=tot+pacc.getPrezzo();
+		}
+	%>
+	<div>
+		Totale:<%=tot%>
+	</div>
 </body>
 </html>
