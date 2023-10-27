@@ -3,8 +3,6 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.PacchettoBean;
-
 public class carrelloBean {
 
 	private List<PacchettoBean> carrello;

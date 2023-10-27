@@ -33,6 +33,7 @@ public class immaginiModel {
 	}
 	
 	private static final String TABLE_NAME_IMMAGINI = "Immagini";
+	String CODICE ="Codice";
 	
 	public synchronized Collection<immaginiBean> immaginiPerPacchetto(String code) throws SQLException{
 		Connection connection = null;
@@ -52,7 +53,7 @@ public class immaginiModel {
 			while (rs.next()) {
 				immaginiBean bean = new immaginiBean();
 				bean.setNome(rs.getString("Nome"));
-				bean.setCodice(rs.getString("Codice"));
+				bean.setCodice(rs.getString(CODICE));
 				immagini.add(bean);
 			}
 
@@ -81,7 +82,7 @@ public class immaginiModel {
 			{
 				immaginiBean bean = new immaginiBean();
 				bean.setNome(rs.getString("Nome"));
-				bean.setCodice(rs.getString("Codice"));
+				bean.setCodice(rs.getString(CODICE));
 				immagini.add(bean);
 			}
 		}
@@ -116,7 +117,7 @@ public class immaginiModel {
 
 			while (rs.next()) {
 				bean.setNome(rs.getString("Nome"));
-				bean.setCodice(rs.getString("Codice"));
+				bean.setCodice(rs.getString(CODICE));
 			}
 
 		} finally {
