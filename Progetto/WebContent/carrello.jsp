@@ -21,6 +21,7 @@
 			if ((carrello != null && carrello.getPacchetti().size() != 0) && (immaginiCarrello != null && immaginiCarrello.getImmagini().size() != 0)){
 		%>
 				<table border="1">
+					<caption></caption>
 					<tr>
 			<th>Copertina</th>
 			<th>Nome </th>
@@ -36,13 +37,13 @@
 					for (immaginiBean img : immagini) {
 						if(pacc.getCodSeriale().contains(img.getCodice())){
 		%>	
-							<td><img src="Immagini/<%=img.getNome() %>"></td>
+							<td><img src="Immagini/<%=img.getNome() %>" alt="Errore caricamento immagine"></td>
 							<td><%=pacc.getNome()%></td>
 							<td><%=pacc.getDescrizioneRidotta()%></td>
 							<td><%=pacc.getPrezzo()%></td>
 							<td>
 								<a href = "pacchettoControl?action=Rimuovi&id=<%=pacc.getCodSeriale()%>">
-									<img src = "Immagini/cestino.png">
+									<img src = "Immagini/cestino.png" alt="Elimina">
 								</a>
 							</td>
 		</tr>

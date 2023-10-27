@@ -26,6 +26,7 @@
 <body>
 	<h2>Products</h2>
 	<table border="1">
+		<caption></caption>
 		<tr>
 			<th>Copertina</th>
 			<th>Nome </th>
@@ -44,7 +45,7 @@
 						immaginiBean bean2 = (immaginiBean) it2.next();
 						if(bean.getCodSeriale().contains(bean2.getCodice())){
 		%>
-							<td><img src="Immagini/<%=bean2.getNome() %>"></td>
+							<td><img src="Immagini/<%=bean2.getNome() %>" alt="Errore caricamento immagini"></td>
 		<%
 						}
 					}

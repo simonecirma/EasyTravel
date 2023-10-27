@@ -33,10 +33,12 @@ public class pacchettoControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		carrelloBean carrello = (carrelloBean)request.getSession().getAttribute("carrello");
+		String CARRELLO = "carrello";
+		
+		carrelloBean carrello = (carrelloBean)request.getSession().getAttribute(CARRELLO);
 		if(carrello == null) {
 			carrello = new carrelloBean();
-			request.getSession().setAttribute("carrello", carrello);
+			request.getSession().setAttribute(CARRELLO, carrello);
 		}
 		carrelloBean immaginiCarrello = (carrelloBean)request.getSession().getAttribute("immaginiCarrello");
 		if(immaginiCarrello == null) {
@@ -68,7 +70,7 @@ public class pacchettoControl extends HttpServlet {
 				}else if (action.equalsIgnoreCase("Rimuovi")) {
 					String id = request.getParameter("id");
 					carrello.cancellaPacchetto(productModel.ricercaPerCodice(id));
-					request.getSession().setAttribute("carrello", carrello);
+					request.getSession().setAttribute(CARRELLO, carrello);
 					immaginiCarrello.cancellaImmagine(immaginiModel.immagineCopertina(id));
 					request.getSession().setAttribute("immaginiCarrello", immaginiCarrello);
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/carrello.jsp");
