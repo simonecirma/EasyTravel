@@ -10,12 +10,13 @@ CREATE TABLE Utente
 	Email varchar (50) NOT NULL,
 	Password varchar (20) NOT NULL,
 	Indirizzo varchar (50) NOT NULL,
-	NumeroCivico varchar (5) NOT NULL,
-	CAP varchar (5) NOT NULL,
+	NumeroCivico int NOT NULL,
+	CAP int NOT NULL,
 	Città varchar (20) NOT NULL,
 	Provincia varchar (20) NOT NULL,
-	DataDiNascita date NOT NULL,
+	DataDiNascita varchar(50) NOT NULL,
 	NumeroTelefono varchar (20) NOT NULL,
+	Immagine varchar (50) NOT NULL,
 	FlagAmm bit NOT NULL,
 	PRIMARY KEY (ID)
 );
@@ -112,12 +113,12 @@ CREATE TABLE Recensione
     FOREIGN KEY(ID) REFERENCES Utente(ID) ON UPDATE cascade ON DELETE cascade
 );
 
-INSERT INTO Utente (Nome, Cognome, Email, Password, Indirizzo, NumeroCivico, CAP, Città, Provincia, DataDiNascita, NumeroTelefono, FlagAmm)
-VALUES ('Donato','Folgieri','df@gmail.com','donato', 'via nazionale','23', '82016','Napoli','Napoli','2001-07-21','+393917598493',0);
-INSERT INTO Utente (Nome, Cognome, Email, Password, Indirizzo, NumeroCivico, CAP, Città, Provincia, DataDiNascita, NumeroTelefono, FlagAmm)
-VALUES ('Simone','Cirma','sc@gmail.com','simone', 'via marittima','85', '87201','Aversa','Caserta','2001-05-27','+393478902231',0);
-INSERT INTO Utente (Nome, Cognome, Email, Password, Indirizzo, NumeroCivico, CAP, Città, Provincia, DataDiNascita, NumeroTelefono, FlagAmm)
-VALUES ('Giuseppe','Rossi','gp@gmail.com','giuseppe', 'via panoramica','76', '89301','Agropoli','Napoli','1965-03-06','+393756789768',1);
+INSERT INTO Utente (Nome, Cognome, Email, Password, Indirizzo, NumeroCivico, CAP, Città, Provincia, DataDiNascita, NumeroTelefono,Immagine, FlagAmm)
+VALUES ('Donato','Folgieri','df@gmail.com','donato', 'via nazionale','23', '82016','Napoli','Napoli','2001-07-21','+393917598493',"",0);
+INSERT INTO Utente (Nome, Cognome, Email, Password, Indirizzo, NumeroCivico, CAP, Città, Provincia, DataDiNascita, NumeroTelefono,Immagine, FlagAmm)
+VALUES ('Simone','Cirma','sc@gmail.com','simone', 'via marittima','85', '87201','Aversa','Caserta','2001-05-27','+393478902231',"",0);
+INSERT INTO Utente (Nome, Cognome, Email, Password, Indirizzo, NumeroCivico, CAP, Città, Provincia, DataDiNascita, NumeroTelefono,Immagine, FlagAmm)
+VALUES ('Giuseppe','Rossi','gp@gmail.com','giuseppe', 'via panoramica','76', '89301','Agropoli','Napoli','1965-03-06','+393756789768',"",1);
 
 SET @CartaDonato='1234567891234567';
 SET @CartaSimone='9876543210987654';

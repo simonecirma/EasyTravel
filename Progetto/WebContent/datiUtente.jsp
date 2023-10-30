@@ -9,12 +9,6 @@
 	<jsp:include page="Intestazione.jsp" flush="true"/>
 </head>
 <body>
-	<table border="1">
-		<caption></caption>
-		<tr><td><a href="datiUtente.jsp">Dati Utente</a></td></tr>
-		<tr><td><a href="ordiniUtente.jsp">I Miei Ordini</a></td></tr>
-		<tr><td><a href="index.jsp">Logout</a></td></tr>
-		
-	</table>
+
 </body>
 </html>
