@@ -28,10 +28,8 @@
 		<%
 				}
 			} else {
-		%>
-		<tr>
-			<td colspan="6">No products available</td>
-		</tr>
+		%>	
+		No products available
 		<%
 			}
 		%>
